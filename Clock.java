@@ -53,5 +53,39 @@ public class Clock {
         // x = 48%, y = 48%, width = 4%, height = 4%;
         graphic.fillOval(this.getReference() * 48 / 100, this.getReference() * 48 / 100, this.getReference() * 4 / 100, this.getReference() * 4 / 100 );
 
+
+// creation of the marking
+        int x;
+        int y;
+        for(int i = 0; i < 60; ++i) {
+            x = (int) ((Math.cos(Math.PI*i/30)) * 10000);
+            y = (int) ((Math.sin(Math.PI*i/30)) * 10000);
+
+            // creation mark in 0, 3, 6, 9;
+            if(i%15 == 0) {
+                panel.change_color(graphic, 255, 255, 255);
+                this.big_mark(graphic, 4, x, y);
+            } 
+
+            // creation mark in 1, 2, 4, 5, 7, 8, 10, 11;
+            else if((i%5 == 0) && (i%15!=0)) {
+                panel.change_color(graphic, 255, 255, 255);
+                this.little_mark(graphic, 3, x, y);
+            }
+
+            // creation of the remaining mark
+            else {
+                panel.change_color(graphic, 127, 127, 230);
+                this.little_mark(graphic, 2, x, y);
+            }
+        }
+    }
+
+    public void big_mark(Graphics g, int k, int x, int y) {
+            g.fillRect((getReference()*50/100 + getReference()*42/100*x/10000 -getReference()*k/2/100 ), (getReference()*50/100 - getReference()*42/100*y/10000 -getReference()*k/2/100), getReference()*k/100, getReference()*k/100);
+    }
+
+    public void little_mark(Graphics g, int k, int x, int y) {
+            g.fillOval((getReference()*50/100 + getReference()*42/100*x/10000 -getReference()*k/2/100 ), (getReference()*50/100 - getReference()*42/100*y/10000 -getReference()*k/2/100), getReference()*k/100, getReference()*k/100);
     }
 }
