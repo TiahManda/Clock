@@ -6,7 +6,9 @@ import java.awt.*;
 public class Clock {
 
     private int reference;
-
+    private Pin hour = new Pin();
+    private Pin minute = new Pin();
+    private Pin second = new Pin();
 // Constructor
     public Clock() {
         
@@ -58,8 +60,8 @@ public class Clock {
         int x;
         int y;
         for(int i = 0; i < 60; ++i) {
-            x = (int) ((Math.cos(Math.PI*i/30)) * 10000);
-            y = (int) ((Math.sin(Math.PI*i/30)) * 10000);
+            x = (int) ((Math.cos(Math.PI*(i+15)/30)) * 10000);
+            y = (int) ((Math.sin(Math.PI*(i+15)/30)) * 10000);
 
             // creation mark in 0, 3, 6, 9;
             if(i%15 == 0) {
@@ -79,6 +81,22 @@ public class Clock {
                 this.little_mark(graphic, 2, x, y);
             }
         }
+
+    // creation pin
+        //hour pins
+        panel.change_color(graphic,255,255,255);
+        hour.location_pin(hour.getLoc());
+        hour.create_pin(graphic,21,this.getReference());
+
+        // minute pin
+        panel.change_color(graphic,147, 147, 255);
+        minute.location_pin(minute.getLoc());
+        minute.create_pin(graphic,35,this.getReference());
+
+        // second pin
+        panel.change_color(graphic,255,0,0);
+        second.location_pin(second.getLoc());
+        second.create_pin(graphic,40,this.getReference());
     }
 
     public void big_mark(Graphics g, int k, int x, int y) {
