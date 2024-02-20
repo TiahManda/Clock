@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import java.awt.Color;
 
 public class Window extends JFrame {
     private Panel panel;
@@ -11,12 +12,27 @@ public class Window extends JFrame {
         this.setSize(400,500);
         // initialisation panel
         this.panel = new Panel();
+
         this.setContentPane(this.panel);
 
         // window display
         this.setVisible(true);
+
+        // change the main clock background
+        this.panel.setBackground(new Color(0,0,0));
+
+
+
+        // To power on the clock
+        this.panel.clock.animation(this);
     }
 
+//change panel background
+    public void change_background(Panel panel,int red, int green, int bleu) {
+        panel.setBackground(new Color(red, green, bleu));
+    }
+
+// features
     public static void main(String[] args) {
         Window window = new Window();
     }

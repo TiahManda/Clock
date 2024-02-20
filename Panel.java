@@ -2,12 +2,17 @@ import javax.swing.JPanel;
 import java.awt.*;
 
 public class Panel extends JPanel {
-    private Clock clock;
+    public Clock clock = new Clock();
     public void paintComponent(Graphics graphic) {
-        change_color(graphic,0,0,0);
-        graphic.drawRect(0,0,50,100);
 
-        clock = new Clock();
+        //background off the panel
+        change_color(graphic,71,47,9);
+        graphic.fillRect(0,0,this.getWidth(), this.getHeight());
+
+        // setting clock
+        this.clock.set_actual_time();
+
+        // clock creation
         clock.creat_clock(this, graphic);
     }
 

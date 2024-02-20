@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.time.LocalTime;
 
 //importation of color and graphics
 import java.awt.*;
@@ -9,6 +10,7 @@ public class Clock {
     private Pin hour = new Pin();
     private Pin minute = new Pin();
     private Pin second = new Pin();
+
 // Constructor
     public Clock() {
         
@@ -105,5 +107,78 @@ public class Clock {
 
     public void little_mark(Graphics g, int k, int x, int y) {
             g.fillOval((getReference()*50/100 + getReference()*42/100*x/10000 -getReference()*k/2/100 ), (getReference()*50/100 - getReference()*42/100*y/10000 -getReference()*k/2/100), getReference()*k/100, getReference()*k/100);
+    }
+
+// setting the clock to personnalised
+    public void personnalise_time(int hr, int min, int sec) {
+        this.hour.setLoc(hr);
+        this.minute.setLoc(min);
+        this.second.setLoc(sec);
+    }
+
+// setting the clock to the current time
+    public void set_actual_time() {
+        LocalTime initial = LocalTime.now();
+        this.minute.setLoc(initial.getMinute());
+        this.second.setLoc(initial.getSecond());
+        int hr, minn;
+        minn = this.minute.getLoc();
+        hr = initial.getHour();
+        if(hr >= 12) {
+            hr = (hr - 12)*5;
+        } else {
+            hr = hr*5;
+        }
+        if((minn<12) && (minn >= 0)) {
+            hr = hr + 0;
+        } else if((minn<24) && (minn >= 12)) {
+            hr = hr + 1;
+        } else if((minn<36) && (minn >= 24)) {
+            hr = hr + 2;
+        } else if((minn<48) && (minn >= 36)) {
+            hr = hr + 3;
+        } else {
+            hr = hr + 4;
+        }
+        this.hour.setLoc(hr);
+    }
+
+    public void animation(Window window) {
+        set_actual_time();
+        int s, min, h;
+        s = this.second.getLoc();
+        min = this.minute.getLoc();
+        h = this.hour.getLoc();
+        int move = 0;
+        while(true) {
+            try {
+				Thread.sleep(999);
+			} catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+
+            this.second.pin_move();
+            ++s;
+            window.repaint();
+
+            
+            if(s == 60) {
+                s = 0;
+                ++min;
+                move = 0;
+                this.minute.pin_move();
+                if(min == 60) {
+                    min = 0;
+                }
+            }
+            if (min%12 == 0 && move == 0 && min != 0) {
+                h++;
+                move = 1;
+                this.hour.pin_move();
+                if(h == 60) {
+                    h = 0;
+                }
+            }
+        }
     }
 }
