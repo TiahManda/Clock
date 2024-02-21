@@ -31,9 +31,4 @@ public class Window extends JFrame {
     public void change_background(Panel panel,int red, int green, int bleu) {
         panel.setBackground(new Color(red, green, bleu));
     }
-
-// features
-    public static void main(String[] args) {
-        Window window = new Window();
-    }
 }
