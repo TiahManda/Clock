@@ -3,6 +3,7 @@ import java.awt.Color;
 
 public class Window extends JFrame {
     private Panel panel;
+    private Menu menu;
     public Window() {
         // window property
         this.setTitle("Clock");
@@ -14,6 +15,9 @@ public class Window extends JFrame {
         this.panel = new Panel();
 
         this.setContentPane(this.panel);
+
+        this.menu = new Menu();
+        menu.createMenu(this);
 
         // window display
         this.setVisible(true);
