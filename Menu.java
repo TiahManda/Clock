@@ -1,6 +1,6 @@
 /*
 
-============================
+==========================================================================
 TiahManda Clock App
 Version 1.0
 
@@ -15,12 +15,14 @@ This clock app displays - the current time in a user-friendly interface.
                         - Customised time
 
 License: "MIT"
-============================
+==========================================================================
 
 */
 
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Menu {
     private JFrame frame;
@@ -31,7 +33,7 @@ public class Menu {
     }
 
     // Method to create the menu
-    public void createMenu(JFrame frame) {
+    public void createMenu(Window frame) {
         // Create the menu bar
         JMenuBar menuBar = new JMenuBar();
 
@@ -48,6 +50,19 @@ public class Menu {
         JMenuItem setToUtcItem = new JMenuItem("Set to UTC");
         JMenuItem setToAnotherRegionItem = new JMenuItem("Set to Another Region");
         JMenuItem customizeTimeItem = new JMenuItem("Customize Time");
+
+        // Addition features
+        setActualTimeItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.panel.clock.set_actual_time();
+            }
+        });
+
+        setToUtcItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.panel.clock.set_utc_time();
+            }
+        });
 
         settingsMenu.add(setActualTimeItem);
         settingsMenu.add(setToUtcItem);

@@ -20,7 +20,7 @@
 
 
 import javax.swing.*;
-import java.time.LocalTime;
+import java.time.*;
 
 //importation of color and graphics
 import java.awt.*;
@@ -143,6 +143,15 @@ public class Clock {
         this.minute.setLoc(initial.getMinute());
         this.second.setLoc(initial.getSecond());
         setHourForm(initial.getHour());
+    }
+
+// Get current UTC time
+    public void set_utc_time() {
+        LocalDateTime utcTime = LocalDateTime.now(ZoneOffset.UTC);
+        this.minute.setLoc(utcTime.getMinute());
+        this.second.setLoc(utcTime.getSecond());
+        setHourForm(utcTime.getHour());
+        System.out.println("UTC Time: " + utcTime);
     }
 
     public void setHourForm(int hr) {

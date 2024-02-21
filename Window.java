@@ -22,7 +22,7 @@ import javax.swing.JFrame;
 import java.awt.Color;
 
 public class Window extends JFrame {
-    private Panel panel;
+    public Panel panel;
     private Menu menu;
     public Window() {
         // window property
@@ -41,11 +41,6 @@ public class Window extends JFrame {
 
         // window display
         this.setVisible(true);
-
-        // change the main clock background
-        this.panel.setBackground(new Color(0,0,0));
-
-
 
         // To power on the clock
         this.panel.clock.animation(this);

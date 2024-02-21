@@ -29,8 +29,6 @@ public class Panel extends JPanel {
         change_color(graphic,71,47,9);
         graphic.fillRect(0,0,this.getWidth(), this.getHeight());
 
-        // setting clock
-        this.clock.set_actual_time();
 
         // clock creation
         clock.creat_clock(this, graphic);
