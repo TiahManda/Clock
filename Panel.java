@@ -1,3 +1,21 @@
+"""
+TiahManda Clock App
+Version 1.0
+
+Author: TiahManda
+Date: February 21, 2024
+File: Panel.java
+
+
+Description:
+This clock app displays - the current time in a user-friendly interface.
+                        - the UTC time
+                        - Time of the region you need
+                        - Customised time
+
+License: "MIT"
+"""
+
 import javax.swing.JPanel;
 import java.awt.*;
 

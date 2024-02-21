@@ -2,11 +2,16 @@
 TiahManda Clock App
 Version 1.0
 
-Author: Your Name
+Author: TiahManda
 Date: February 21, 2024
+File: Menu.java
+
 
 Description:
-This clock app displays the current time in a user-friendly interface.
+This clock app displays - the current time in a user-friendly interface.
+                        - the UTC time
+                        - Time of the region you need
+                        - Customised time
 
 License: "MIT"
 """
