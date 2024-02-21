@@ -1,11 +1,12 @@
-"""
+/*
+
+============================
 TiahManda Clock App
 Version 1.0
 
 Author: TiahManda
 Date: February 21, 2024
 File: Menu.java
-
 
 Description:
 This clock app displays - the current time in a user-friendly interface.
@@ -14,7 +15,10 @@ This clock app displays - the current time in a user-friendly interface.
                         - Customised time
 
 License: "MIT"
-"""
+============================
+
+*/
+
 
 import javax.swing.*;
 

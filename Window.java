@@ -1,4 +1,5 @@
-"""
+/* ==========================================================================
+
 TiahManda Clock App
 Version 1.0
 
@@ -14,7 +15,8 @@ This clock app displays - the current time in a user-friendly interface.
                         - Customised time
 
 License: "MIT"
-"""
+
+=============================================================================  */
 
 import javax.swing.JFrame;
 import java.awt.Color;

@@ -1,20 +1,22 @@
-"""
-TiahManda Clock App
-Version 1.0
+/* ==========================================================================
 
-Author: TiahManda
-Date: February 21, 2024
-File: Clock.java
+    TiahManda Clock App
+    Version 1.0
+
+    Author: TiahManda
+    Date: February 21, 2024
+    File: Clock.java
 
 
-Description:
-This clock app displays - the current time in a user-friendly interface.
-                        - the UTC time
-                        - Time of the region you need
-                        - Customised time
+    Description:
+    This clock app displays - the current time in a user-friendly interface.
+                            - the UTC time
+                            - Time of the region you need
+                            - Customised time
 
-License: "MIT"
-"""
+    License: "MIT"
+
+==============================================================================  */
 
 
 import javax.swing.*;
@@ -140,9 +142,12 @@ public class Clock {
         LocalTime initial = LocalTime.now();
         this.minute.setLoc(initial.getMinute());
         this.second.setLoc(initial.getSecond());
-        int hr, minn;
+        setHourForm(initial.getHour());
+    }
+
+    public void setHourForm(int hr) {
+        int minn;
         minn = this.minute.getLoc();
-        hr = initial.getHour();
         if(hr >= 12) {
             hr = (hr - 12)*5;
         } else {
