@@ -1,3 +1,16 @@
+"""
+TiahManda Clock App
+Version 1.0
+
+Author: Your Name
+Date: February 21, 2024
+
+Description:
+This clock app displays the current time in a user-friendly interface.
+
+License: "MIT"
+"""
+
 import javax.swing.*;
 
 public class Menu {
