@@ -37,7 +37,7 @@ public class Window extends JFrame {
         this.setContentPane(this.panel);
 
         this.menu = new Menu();
-        menu.createMenu(this);
+        menu.createMenu(this, this.panel);
 
         // window display
         this.setVisible(true);

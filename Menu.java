@@ -33,7 +33,7 @@ public class Menu {
     }
 
     // Method to create the menu
-    public void createMenu(Window frame) {
+    public void createMenu(Window frame, Panel panel) {
         // Create the menu bar
         JMenuBar menuBar = new JMenuBar();
 
@@ -62,6 +62,13 @@ public class Menu {
         setToUtcItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.panel.clock.set_utc_time();
+                frame.repaint();
+            }
+        });
+
+        customizeTimeItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.panel.clock.customiseTime(panel);
                 frame.repaint();
             }
         });

@@ -151,7 +151,22 @@ public class Clock {
         this.minute.setLoc(utcTime.getMinute());
         this.second.setLoc(utcTime.getSecond());
         setHourForm(utcTime.getHour());
-        System.out.println("UTC Time: " + utcTime);
+    }
+
+
+// Customise Time
+    public void customiseTime(Panel panel) {
+        JTextField hourTextField = new JTextField();
+        JTextField minuteTextField = new JTextField();
+        JTextField secondTextField = new JTextField();
+
+        hourTextField.setBounds(100, 20, 50, 25);
+        minuteTextField.setBounds(200, 20, 50, 25);
+        secondTextField.setBounds(100, 20, 50, 25);
+
+        panel.add(hourTextField);
+        panel.add(minuteTextField);
+        panel.add(secondTextField);
     }
 
     public void setHourForm(int hr) {
