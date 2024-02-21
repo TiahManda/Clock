@@ -55,12 +55,14 @@ public class Menu {
         setActualTimeItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.panel.clock.set_actual_time();
+                frame.repaint();
             }
         });
 
         setToUtcItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.panel.clock.set_utc_time();
+                frame.repaint();
             }
         });
 
